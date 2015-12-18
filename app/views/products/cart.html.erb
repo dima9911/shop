@@ -1,0 +1,31 @@
+ <% if flash[:notice] %>
+<div class="row">
+	<div class="large-12 columns">
+	<h1>Your cart blank!</h1>
+	<a href="/" class="alert button"><== Back</a>
+	</div>
+</div>
+<% else %>
+
+<div class="row">
+	<div class="large-12 columns"><h1>Your cart has some products:</h1></div>
+</div>
+
+<% @cart.each do |ca| %>
+<div class="row myrow">
+	<div class="large-3 columns"><a href="/products/<%= ca[0].id %>" class="hvr-grow-rotate" ><img src="/img/<%= ca[0].id %>.jpg"></a></div>
+	<div class="large-3 columns"><h3><%= ca[0].name %></h3></div>
+	<div class="large-3 columns"><h3><%= ca[0].price %> RUB</h3><h3><%= ca[1] %> PCS</h3></div>
+	<div class="large-1 columns"><a href="/dropatcart/<%= ca[0].id %>"><h3 class="close"> X</h3></a></div>
+</div>
+
+<% end %>
+<br>
+<div class="row">
+	<div class="large-12 columns text-center">
+	<a href="/products" class="warning button"><h3><== Back </h3></a>
+		<a href="/orders" class="alert button"><h2>Create order NOW!</h2></a>
+	</div>
+</div>
+
+<% end %>

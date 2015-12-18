@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="large-12 columns text-center">
+		<h2>You look a product <h1><%= @product.name %></h1></h2>
+	</div>
+</div>
+<div class="row">
+	<div class="large-4 columns">
+		<h3>Price: <%= @product.price %> RUB</h3>
+		<h3>Count: <%= @product.count %> PCS</h3>
+		
+	</div>
+
+	<div class="large-4 columns">
+		  <img src="/img/<%= @product.id %>.jpg">
+	</div>
+
+
+
+</div>
+
+<div class="row text-center">
+
+<a href="/products" class="warning button"> <== Back</a>
+
+<% if @product.count !=0 %>
+<a href="/addtocart/<%= @product.id %>" class="warning button"> Add to cart</a>
+<% else %>
+<h3>this product coming soon!</h3>
+<% end %>
+</div>
+
+
+

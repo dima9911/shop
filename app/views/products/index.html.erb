@@ -1,0 +1,49 @@
+<div class="row"><%= flash[:ordered] = nil %><%= flash[:orderedd] = nil %>
+
+		<h1>
+			You login as   <%= @user.first_name %> <a href="/signout" class="alert button">Logout</a> 
+			<% if @user.admin != nil %> 
+			<strong class="hvr-pulse">
+			ADMIN MODE	
+			</strong> 
+			<% end %>
+		</h1>
+<% if @user.admin == nil %>
+		<a href="/allorders" class="alert button">MY ORDER</a>
+		<% else %>
+				<h3>You can look / given admin mode state for all users</h3> 
+		<a href="/alusers" class="alert button">SHOW USERS</a>
+		<hr>
+		<h3>You can look  / edit state for all orders</h3> 
+		<a href="/allorders" class="alert button">SHOW ORDER</a>
+		<hr>
+		<% end %>
+
+		<% if @user.admin != nil %>
+		<h3>You can look / add / edit / delete all products</h3> 
+		<% end %>
+
+<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+		<% @products.each do |product| %>
+  				<a href="/products/<%= product.id %>"><li class="hvr-grow-rotate">
+  				<h3><%= product.name %></h3> 
+  				 <h4> <%= product.price %> руб </h4><br>
+  				<p>В наличии <%= product.count %></p>
+  				</li></a>
+  		
+<% end %>
+	</ul>
+
+<% if @user.admin == nil %>
+<h2 class="text-right">
+	In you CART <%= if session[:buy_product]
+				@count
+			else
+				0
+			end
+	 %> products <a href="/showcart" class="alert button">In CART ==></a>
+</h2>
+
+<% end %>
+	
+</div>

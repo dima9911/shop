@@ -1,0 +1,14 @@
+<% if flash[:orderedd]  %>
+<% flash[:ordered] = nil %>
+<div class="row">
+	<div class="large-12 columns text-center">
+		<a href="/products" class="alert button"><== Return to CART</a>		
+	</div>
+</div>
+<% else %>
+<div class="row">
+	<div class="large-12 columns text-center">
+		<a href="/products" class="alert button"><== Return to shop</a>		
+	</div>
+</div>
+<% end %>
