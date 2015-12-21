@@ -121,9 +121,51 @@ i=0
 
   end
 
-  def sh
-  	@ses=User.find(current_user)
-  end
+def edit
+
+	@product = Product.find(params[:id].to_i)
+
+	render 'edit'
+
+
+end
+
+def update
+	
+	product = Product.find(params[:id].to_i)
+
+	product.name = params[:product][:name]
+
+	product.count = params[:product][:count]
+
+	product.price = params[:product][:price]
+
+	product.save
+
+	redirect_to '/products'
+
+end
+
+
+	def delete
+
+		Product.delete(params[:id].to_i)
+
+		redirect_to '/products'
+
+	end
   	
+
+  	def new
+  		
+  		@product=Product.new
+
+  	end
+
+  	def create
+  		 product = Product.create(name: params[:product][:name], price: params[:product][:price], count: params[:product][:count] )
+  		 product.save
+  		 redirect_to '/products'
+  	end
 
 end

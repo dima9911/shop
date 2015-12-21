@@ -16,9 +16,26 @@
 		
 		<% if @order.state %>
 			<strong class="mystrong1">READY</strong> 
-		<% else %>
-			<strong class="mystrong" >NOT READY</strong>
+				<% if current_user.admin %>
+	   <%= form_for(@order) do |f| %>
+
+      <%= f.submit "Enable NOT READY", class: "alert button but2" %>
+    		<% end %>
 		<% end %>
+		<% else %>
+
+			<strong class="mystrong" >NOT READY</strong>
+
+				<% if current_user.admin %>
+	   <%= form_for(@order) do |f| %>
+
+      <%= f.submit "Enable READY", class: "alert button but2" %>
+    		<% end %>
+		<% end %>
+
+		<% end %>
+
+	
 
 		</h3>
 	</div>

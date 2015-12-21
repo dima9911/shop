@@ -30,6 +30,34 @@ def current_user
 
   end
 
+  def give_admine_mode(user)
+      user.admin = true
+
+      user.save
+    end
+
+      def stop_admine_mode(user)
+      user.admin = nil
+
+      user.save
+    end
+
+
+    def give_ready(order)
+
+      order.state = true
+
+      order.save
+
+    end
+
+    def stop_ready(order)
+
+      order.state=nil
+
+      order.save
+
+    end
   
 
 end

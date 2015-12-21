@@ -10,6 +10,20 @@ def show
     @users = User.all
     end
 
+    def update
+
+      user = User.find(params[:id].to_i)
+
+      if user.admin
+      stop_admine_mode user      
+      else
+
+      give_admine_mode user
+      end
+      redirect_to '/alusers'
+
+    end
+
   def new
   	@user = User.new
   end

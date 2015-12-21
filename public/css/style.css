@@ -49,6 +49,13 @@ h1,h2,h3,label,.alert,ul  {
 
 }
 
+
+.final1 {
+
+  color: green !important;
+
+}
+
 li,.myrow {
 
   border: 1px solid white;

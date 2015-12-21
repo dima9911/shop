@@ -29,9 +29,23 @@
   				<h3><%= product.name %></h3> 
   				 <h4> <%= product.price %> руб </h4><br>
   				<p>В наличии <%= product.count %></p>
+  				<% if current_user.admin %>
+  				<a href="/edit/<%= product.id  %>" class="warning button">EDIT</a>
+  				<a href="/delete/<%= product.id  %>" class="alert button">DELETE</a>
+
+  				<% end %>
   				</li></a>
-  		
+  				
 <% end %>
+<% if current_user.admin %>
+<li class="hvr-grow-rotate">
+ <div class="row">
+ 	<div class="large-12 columns text-center">
+ 		<a href="/products/new" class="alert button">ADD</a>
+ 	</div>
+ </div>
+ </li>
+ <% end %>
 	</ul>
 
 <% if @user.admin == nil %>

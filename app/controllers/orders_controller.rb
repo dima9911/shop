@@ -44,13 +44,30 @@ class OrdersController < ApplicationController
 
 	def allorders
 
+		if current_user.admin
+			@orders = Order.all
+		else
 		@orders=Order.where("user_id = ?", current_user.id)
-
+		end
 	end
 
 	def showorder
 		
 		@order=Order.find(params[:id].to_i)
+
+	end
+
+	def update
+
+		order = Order.find(params[:id].to_i)
+
+		if order.state
+			stop_ready order 
+		else
+			give_ready order
+		end
+
+		redirect_to :back
 
 	end
 

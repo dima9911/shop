@@ -3,16 +3,16 @@
   <div class="large-6 large-push-3 columns text-center">
     <%= form_for(@product) do |f| %>
     
-      <h3>name</h3> 
+      <h3>Old name is '<%= @product.name %>'</h3> 
       <%= f.text_field :name %>
 
-      <h3>count</h3> 
+      <h3>Old count is '<%= @product.name %>'</h3> 
       <%= f.text_field :count %>
 
-   <h3>price</h3> 
+   <h3>Old price is '<%= @product.name %>'</h3> 
       <%= f.text_field :price %>
 
-      <%= f.submit "ADD this product", class: "alert button but2" %>
+      <%= f.submit "Edit this product", class: "alert button but2" %>
     <% end %>
   </div>
 </div>

@@ -20,6 +20,10 @@ Rails.application.routes.draw do
        get 'showorder/:id' => 'orders#showorder'
 
        get 'alusers' => 'users#alusers'
+       
+        get '/edit/:id' => 'products#edit'
+
+          get '/delete/:id' => 'products#delete'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
 resources :users
